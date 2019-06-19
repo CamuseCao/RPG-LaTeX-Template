@@ -1,0 +1,134 @@
+%\documentclass[bibstyle=super,font=advance]{Muse-Book}
+\documentclass[bibstyle=super,font=empty]{Muse-Book}
+\usepackage{lipsum,zhlipsum}
+\begin{document}
+\frontmatter
+\musecover{subtitle=Created by Camuse \today}
+%\musecover{%
+%	image=img/cover,
+%	logo=img/logo,
+%	title=你的题目,
+%	subtitle=你的副标题
+%}
+ 
+\tableofcontents
+
+\mainmatter
+
+\part{唯一一卷}
+\chapter{基本功能介绍}
+\section{基本构成}
+
+本模板有卷、章、节、小节、次小节构成。目录只显示到小节。
+
+\section{无序列表的使用}
+
+\begin{rpg-list}
+	\item 原模板的配色很好看
+	\item 原模板的图片很好看
+	\item 原模板的盒子也不错
+\end{rpg-list}
+
+\section{彩色盒子的使用}
+
+\begin{muse-obox}[简单的彩色盒子]
+	这是一个简单的盒子，中括号里面放上盒子的名称。
+\end{muse-obox}
+
+
+\begin{muse-obox}[颜色可以改变的]{0.0,0.5,0.5}
+	盒子虽然很简答，但是可以改变颜色，花括号里面是典型的 rgb 确定颜色的方法。不写的话就和上一个盒子一样用默认的颜色，填的话就变成你要的颜色。
+\end{muse-obox}
+	
+\begin{muse-titlebox}{凸显标题的盒子}
+		这个盒子是另一个样式，能够凸显标题。
+\end{muse-titlebox}
+
+\begin{muse-quotebox}
+	这个盒子是设计来引用的，引用的放在盒子里面就更加突出了。
+\end{muse-quotebox}
+	
+\begin{muse-pbox}{有背景图片的盒子}
+	这是一个带背景图片的盒子。
+	\tcblower
+	这是盒子的设计就是从 tcolotbox 的说明文档上直接抄来的，挺好看的。
+\end{muse-pbox}
+\newpage
+\section{在顶部和底部添加优美的图片}
+\museart[t]{img/art-top}  %Figures/art-top
+\museart[b]{img/art-bottom} 
+使用了之后会把页眉页脚这些的位置改变哦，方括号里面只能填 t 或者 b 。t 自然是 top ，b 就是 bottom 。实际上加的图片是浮动体，可能出现的位置不是那么理想。你喜欢的话就用吧。
+%\zhlipsum[1]
+\newpage
+\section{透明的图片}
+\museart*[t]{img/art-top}
+\museart*[b]{img/art-bottom}
+如果觉得不想改变整个版面的边距，实际上可以加上*号，这样加入的图片位置就在当前页面了，不会乱跑了。这样做的话，图片是带透明度的。担心透明度不满意？自己的图片透明度不合适怎么办？
+\newpage
+\section{为图片选择你想要的透明度}
+\museart*[t]{img/art-top}{0.7}
+\museart*[b]{img/art-bottom}
+实际上这个指令可以加第三个参数，如同示例的，0.7是图片的不透明度。你可以选择0-1之间的任意值。1就是显示原图的样子，0就是完全透明了。
+
+\section{定理等环境}
+
+定理、定义、命题、例子这四个环境已经定义好了。可以直接使用。
+
+关于引用方面。我使用 clevercref 宏包来完成，因为它比较智能，很好用。所以一下的交叉引用都是用它。如果你还是喜欢普通的引用的话也还是可以用的。
+
+\begin{muse-example}{例子盒子的简单使用}
+	这是一个例子。在盒子内部自己引用的话可以用 \cref{exa:\thetcbcounter} 里面具体的代码方法。但是这个引用相当鸡肋。出了盒子就不能引用了。当然要有 label 才好了。如果你没写 label 的话，就像我这个例子里面一样，那么我自动给它绑定了一个，可以用\cref{exa:1.7.1}。但是如果你在前面添加章节的话，自动编的 label 就全部改变了，所以还是老老实实的自己加 label 吧。不要不添加，除非你认为不需要引用。
+\end{muse-example}
+
+\begin{muse-example}{记得被它们加上 label 哦}{exa:with-label}
+	加上 label 之后就可以放心使用了。建议加上前缀 exa: ，不加也可以，但是这样容易区分，免得自己后面都把 label 混了。引用一下自己的 \cref{exa:with-label}。这样子就不怕 label 乱了。
+\end{muse-example}
+
+\begin{muse-theorem}{一个定理}{thm:nonsense}
+	这里面根本不是一个真正的定理，这只是一个例子啊。建议 label 加上前缀 thm: 。
+\end{muse-theorem}
+\cref{thm:nonsense}是一个很有用的定理啊，你看它告诉你怎么使用定理环境了。
+
+\begin{muse-definition}{喜欢耍流氓的人就是流氓}{def:rogue}
+	我们定义喜欢耍流氓的人为流氓。
+\end{muse-definition}
+我认为\cref{def:rogue}的定义不妥当，耍流氓也可以是把流氓耍了，这个把流氓耍了的人不应该叫做流氓。
+
+\begin{muse-proposition}{该命题是一个假命题}{pro:false}
+	我是一个假的命题。
+\end{muse-proposition}
+\cref{pro:false}是一个假命题。我该信吗？
+
+\begin{muse-cmd}[Camuse]{一个命令行}{cmd:how-to-use}
+git clone https://github.com/CamuseCao/RPG-LaTeX-Template
+cd RPG-Latex-Template
+latexmk -xelatex
+\end{muse-cmd}
+\cref{cmd:how-to-use}向我们展示了这个项目的基本使用。
+
+\begin{muse-listing}{结果与代码}{lis:easy-equation}
+\begin{equation}
+  \alpha + \beta = \omega 
+\end{equation}
+\end{muse-listing}
+
+
+\begin{muse-listing}*{代码与结果}{lis:another-easy-equation}
+\begin{equation}
+  \alpha + \beta = \omega 
+\end{equation}
+\end{muse-listing}
+
+\begin{muse-hlisting}{上下版本的}{lis:lis}
+\begin{equation}
+  \alpha + \beta = \omega 
+\end{equation}
+\end{muse-hlisting}
+
+\begin{muse-hlisting}[listing only,]{只有代码}{lis:lis2}
+\begin{equation}
+  alpha + \beta = \omega 
+\end{equation}
+\end{muse-hlisting}
+
+\end{document}

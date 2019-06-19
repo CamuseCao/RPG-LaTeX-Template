@@ -1,46 +1,17 @@
-# RPG LaTeX Template
+# Muse-Book Template
+Based on RPG LaTeX Template 
 
-This is an attempt at a RPG LaTeX template.
-The template compiles with xetex and pdflatex.
+RPG LaTeX 模板设计的十分美观，我非常喜欢作者设计的页眉页脚，封面搭配这些。
+RPG 模板的原始地址：https://github.com/rpgtex/DND-5e-LaTeX-Template 。
+而我是在 https://github.com/Krozark/RPG-LaTeX-Template 的基础上修改的。
+但是该模板主要是为英语设计的，为了能够愉快的使用该模板，我在它的基础上进行了一些汉化工作，部分代码重写了，新加了一些功能，同时也删除了一些我可能用不到的功能。在这个基础上，我重新命名它叫`Muse-Book`。分享给大家，希望大家喜欢。
 
-### Book
-Full preview https://github.com/Krozark/RPG-LaTeX-Template/blob/master/sample/book.pdf
-
-![Preview](https://raw.githubusercontent.com/Krozark/RPG-LaTeX-Template/master/sample/book.jpg)
-
-### Cards
-![Preview](https://raw.githubusercontent.com/Krozark/RPG-LaTeX-Template/master/sample/cards.png)
-
-### Installation
-
-Just clone the repo. From terminal:
-
-```sh
-$ git clone https://github.com/Krozark/RPG-LaTeX-Template.git
+## 下载使用与编译
+```bash
+$ git clone https://github.com/CamuseCao/RPG-LaTeX-Template
 $ cd RPG-Latex-Template
-$ xelatex book.tex
-$ pdflatex cards.tex
+$ latexmk -xelatex
 ```
-
-If you don't have LaTeX installed, the following should help you out:
-#### Ubuntu
-```sh
-sudo apt-get install texlive-full
-```
-#### Arch
-```sh
-sudo pacman -S texlive-bin texlive-core texlive-latexextra
-```
-It's a bit unclear exactly what subset of features this module needs. As a general rule, we'd recommend installing one of larger ones.
-
-### Todo's
-
- - Consider implementing more complex tables for monsters, etc.
- - Clean up the table-preset
- - Create more elegant solution for spacing before and after boxes (using \vspace is rather rigid when two boxes follow in a row)
- - Add subtitle option for boxes
- - Sort out box-decals when boxes break column or page
- - Look into adding the ability to add large images to the document. There are some documents made with InDesign out there that accomplish this quite well.
 
 
 ### Credit
